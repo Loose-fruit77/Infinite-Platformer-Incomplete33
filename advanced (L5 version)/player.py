@@ -1,5 +1,5 @@
-# import pygame
-# BOUNCE = False
+import pygame
+BOUNCE = False
 
 
 class Player(pygame.sprite.Sprite):
@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         # index 0 represents dx, index 1 represents dy
         self.xy_speed = pygame.math.Vector2(0, 0)
         self.facing = "R"
-        self.jump_speed = -14
+        self.jump_speed = -150
         self.jumping = True
         self.world_y = 0
         self.progress = 0
@@ -95,9 +95,17 @@ class Player(pygame.sprite.Sprite):
     def left(self):
         self.facing = 'L'
         if self.jumping:
-            self.xy_speed[0] = -6
+            self.xy_speed[0] = -20
         else:
-            self.xy_speed[0] = -4
+            self.xy_speed[0] = -13
+
+    def right(self):
+        self.facing = 'R'
+        if self.jumping:
+            self.xy_speed[0] = 20
+        else:
+            self.xy_speed[0] = 13
+
 
 
     # write function for right(self)
